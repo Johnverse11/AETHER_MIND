@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Conversation</title>
+</head>
+<body>
+    <h1>Gemini AI Chatbot</h1>
+
+    <!-- Form for submitting user query -->
+    <form action="/chat" method="POST">
+        <label for="user_input">Enter your query:</label>
+        <input type="text" id="user_input" name="user_input" required>
+        
+        <label for="conversation_type">Select Conversation Type:</label>
+        <select id="conversation_type" name="conversation_type">
+            <option value="course">Course</option>
+            <option value="job">Job</option>
+            <option value="internship">Internship</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Section to display chatbot response -->
+    {% if response %}
+    <h2>Chatbot Response:</h2>
+    <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>
