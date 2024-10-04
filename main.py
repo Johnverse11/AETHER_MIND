@@ -1,17 +1,26 @@
 from flask import Flask, render_template, request, jsonify, session
 import requests
 from gen_ai import gemini_response
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Replace with a secure key for session management
+app.secret_key = os.getenv("FLASK_SECRET_KEY")  # Load secret key from .env
 
 # Adzuna API credentials
-ADZUNA_API_ID = "87267910"  # Application ID
-ADZUNA_API_KEY = "467e6bf6cdf7d353ed9a79f9ec63fd6a"  # Application Key
+ADZUNA_API_ID = os.getenv("ADZUNA_API_ID")  # Load from .env
+ADZUNA_API_KEY = os.getenv("ADZUNA_API_KEY")  # Load from .env
 ADZUNA_API_URL = "https://api.adzuna.com/v1/api/jobs"
 
-# edX API credentials (assumed structure, replace with actual API details)
-EDX_API_URL = "https://api.edx.org/catalog/v1/courses"
+# edX API URL (from .env)
+EDX_API_URL = os.getenv("EDX_API_URL")
+
+# Gemini API details (already in your .env)
+GEMINI_API_URL = os.getenv("GEMINI_API_URL")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Function to call Adzuna API
 def fetch_job_listings(job_title, location="India"):

@@ -1,8 +1,9 @@
 import google.generativeai as genai
+from dotenv import load_dotenv
 import os
 
 # Set up the Gemini API key environment variable
-os.environ["GEMINI_API_KEY"] = "AIzaSyA75DeDof3uXHWrcVlD9Zvt3rAVv16K3H4"
+load_dotenv()
 
 def gemini_response(user_input):
     # Retrieve the API key from the environment
@@ -20,4 +21,3 @@ def gemini_response(user_input):
     response_text = response.text
 
     return {"response": response_text}
-
