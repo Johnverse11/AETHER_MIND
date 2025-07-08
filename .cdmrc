@@ -1,2 +1,2 @@
-tabs: ["index.html","style.css"]
+tabs: ["index.html","style.css","AM_INSPIRE.png"]
 terminal-one: static-server -p $PUBLIC_PORT --no-cache
